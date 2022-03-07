@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients("fr.mbds.course.client")
+@EnableFeignClients("com.example.client")
 
 public class ClientApplication {
 
