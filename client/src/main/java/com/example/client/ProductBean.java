@@ -7,4 +7,23 @@ public class ProductBean {
     private String illustration;
     private Double price;
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getIllustration() {
+        return illustration;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
 }
