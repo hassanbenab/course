@@ -12,5 +12,6 @@ public class Cart {
     private List<CartItem> products;
 
     public void addProduct(CartItem cartItem) {
+        products.add(cartItem);
     }
 }

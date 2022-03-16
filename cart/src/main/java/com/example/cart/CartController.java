@@ -35,9 +35,8 @@ public class CartController {
         return cart;
     }
 
-    @PostMapping(value = "/cart/{id}")
-    @Transactional
-    public ResponseEntity<CartItem> addProductToCart(@PathVariable Long id, @RequestBody Long ItemId, @RequestBody int quantity)
+    @PostMapping(value = "/add-cart/{id}")
+    public ResponseEntity<CartItem> addProductToCart(@PathVariable Long id, @RequestParam int ItemId, @RequestParam int quantity)
     {
         CartItem cartItem = new CartItem(ItemId,quantity);
         Cart cart = cartRepository.findById(id).stream().findFirst().orElse(null);

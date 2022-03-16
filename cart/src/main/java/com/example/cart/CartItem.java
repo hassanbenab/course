@@ -8,11 +8,14 @@ import javax.persistence.Id;
 public class CartItem {
     @Id
     @GeneratedValue
-    private Long id;
-    private Long productId;
-    private Integer quantity;
+    private int id;
+    private int productId;
+    private int quantity;
 
-    public CartItem(Long productId, Integer quantity) {
+    public CartItem() {
+    }
+
+    public CartItem(int productId, int quantity) {
         this.productId = productId;
         this.quantity = quantity;
     }

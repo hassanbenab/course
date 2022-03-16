@@ -2,10 +2,7 @@ package com.example.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -16,5 +13,5 @@ public interface MsCartProxy {
     @GetMapping(value = "/cart/{id}")
     public Optional<CartBean> getCart(@PathVariable Long id);
     @PostMapping(value = "/cart/{id}")
-    public ResponseEntity<CartItemBean> addProductToCart(@PathVariable Long id,@RequestBody Long itemId , @RequestBody int quantity);
+    public ResponseEntity<CartItemBean> addProductToCart(@PathVariable Long id, @RequestParam Long itemId , @RequestParam int quantity);
 }
