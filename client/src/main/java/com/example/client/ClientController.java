@@ -28,7 +28,7 @@ public class ClientController {
     }
 
     @PostMapping("/add-product/{cartId}")
-    public String addItemToCart(@PathVariable Long cartId, @RequestParam Long itemId, @RequestParam int quantity){
+    public String addItemToCart(@PathVariable int cartId, @RequestParam int itemId, @RequestParam int quantity){
         System.out.println(itemId);
         msCartProxy.addProductToCart(cartId,itemId,quantity);
         return "index";
