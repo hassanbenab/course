@@ -3,9 +3,7 @@ package com.example.client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,10 +27,10 @@ public class ClientController {
         return "detail";
     }
 
-    @RequestMapping("/add-product/{cartId}, ")
-    public void addItemToCart(@PathVariable Long cartId, @RequestBody itemId){
-        CartItemBean item = new CartItemBean(,cartId,1);
-        msCartProxy.addProductToCart(cartId,);
-
+    @PostMapping("/add-product/{cartId}")
+    public String addItemToCart(@PathVariable Long cartId, @RequestParam Long itemId, @RequestParam int quantity){
+        System.out.println(itemId);
+        msCartProxy.addProductToCart(cartId,itemId,quantity);
+        return "index";
     }
 }

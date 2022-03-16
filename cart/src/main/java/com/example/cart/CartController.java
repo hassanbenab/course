@@ -25,6 +25,7 @@ public class CartController {
         return new ResponseEntity<Cart>(cart, HttpStatus.CREATED);
     }
 
+
     @GetMapping(value = "/cart/{id}")
     public Optional<Cart> getCart(@PathVariable Long id)
     {
@@ -36,9 +37,10 @@ public class CartController {
 
     @PostMapping(value = "/cart/{id}")
     @Transactional
-    public ResponseEntity<CartItem> addProductToCart(@PathVariable Long id, @RequestBody CartItem cartItem)
+    public ResponseEntity<CartItem> addProductToCart(@PathVariable Long id, @RequestBody Long ItemId, @RequestBody int quantity)
     {
-        Cart cart = cartRepository.getOne(id);
+        CartItem cartItem = new CartItem(ItemId,quantity);
+        Cart cart = cartRepository.findById(id).stream().findFirst().orElse(null);
         if (cart == null)
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Couldn't get cart");
         cart.addProduct(cartItem);
